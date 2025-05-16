@@ -1,0 +1,151 @@
+<script type="text/javascript">
+    $(function() {
+        //我们一开始就隐藏所有的下拉菜单
+        $('#dropdown_nav li').find('.sub_nav').hide();
+        //当鼠标悬停在主导航链接，我们发现下拉菜单中的相应链接。
+        $('#dropdown_nav li').hover(function() {
+            $(this).find('.sub_nav').fadeIn(100);
+            $(this).find(".sub_link").addClass("cur");
+        }, function() {
+            $(this).find('.sub_nav').fadeOut(50);
+            $(this).find(".sub_link").removeClass("cur");
+        });
+    });
+</script>
+<style>
+    .sub_nav {
+        display: none; /* 默认隐藏下拉菜单 */
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ccc;
+        z-index: 1000;
+    }
+    #dropdown_nav {
+        position: relative;
+    }
+</style>
+<!-- Begin header -->
+<div id="member_info2"></div>
+<div class="head">
+	<div class="r1 w1225">
+    <div class="le">
+        <a href="#" rel="nofollow" class="ico c__sina" title="新浪微博" target="_blank"><img src="static/styles/images/weibo1.png" /></a>
+        <a href="javascript:;" rel="nofollow" class="ico c__dimension" onMouseOver="mOver()" onMouseOut="mOut()"><img src="static/styles/images/weixin2.png" /></a>
+        <span class="tFav"><a href="javascript:;" rel="nofollow" onclick="AddFavorite(window.location,document.title);" class="f12 c666">收藏</a></span>
+        <div id="caier" style=" display:none; width:200px; height:200px;"><img src="static/styles/images/api.png" style="width:100%; height:100%" /></div>
+    </div>
+  <div class="ri">
+            <span class="tLnk2"><a href="/car"  >购物车</a></span>
+            {{if eq .user.User_id 0}}
+            <span class="tLnk1"><a href="/login" class="f12">登录</a> <a href="/register" class="f12">注册</a></span>
+            {{else}}
+            <span class="tLnk1"><a href="javascript:void(0);" class="f12">欢迎</a>{{.user.Username}}</span>
+            <span class="tLnk1"><a href="/quitLogin" class="f12">退出</a>
+            {{end}}
+      </div>
+    </div>
+<div class="r2 w1225">
+    	<h1 class="logo w440"><img src="static/styles/images/LOGO.png" /></h1>
+        <div class="srh">
+            <form id="searchForm" name="searchForm" method="get" action="/shoubiao.html" onsubmit="return checkSearchForm()"><input type="hidden" value="1" name="dow" id="dow">
+                <input name="w" id="w" type="text" class="tIptTxt c999 f14" value="搜索 品牌/系列/型号" title="搜索 品牌/系列/型号" onfocus="javascript:var t=$(this); if(t.val()==t.attr('title')) t.val('');" onblur="javascript:var t=$(this); if(t.val()=='') t.val(t.attr('title'));" />
+                <a class="c__search">搜索</b></a>
+            </form>
+        </div>
+        <div class="wbPt">
+          <span class="tTel" style="font-size:16px;">服务热线：400-888-8888</span>
+    </div>
+  </div>
+  
+  
+  
+<!-- 模块修改：腕表弹出层，修改内容：从展开修改为收起。修改2014-5-19 15:17:34 修改员：huang-->
+<div class="r3 w1225" style="position:relative">
+<div class="gSort" id="pop_menu">
+
+	
+<!--    <span class="tit" id="pop_gMenu">
+    	<b class="ico c__category"></b>
+        腕表分类
+    </span>-->
+    <ul id="dropdown_nav">
+			<li>
+				<a class="sub_link" href="#">腕表分类</a>
+           
+			<div class="sub_nav">
+			<dl>
+            <dt style="position:absolute;">手表品牌</dt>
+            <dd>
+                                    <a   href="">劳力士</a>
+                                    <a   href="">欧米茄</a>
+                                    <a   href="">欧古诗丹</a>
+                                    <a   href="">天梭</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>男士手表</dt>
+            <dd>
+                                    <a   href="">送父亲</a>
+                                    <a   href="">送老公</a>
+                                    <a   href="">送男友</a> 
+                                    <a   href="">送亲人</a> 
+            </dd>
+        </dl>
+        <dl>
+            <dt>女士手表</dt>
+            <dd>
+                                    <a   href="">送母亲</a>
+                                    <a   href="">送老婆</a>
+                                    <a   href="">送女友</a> 
+                                    <a   href="">送亲人</a> 
+            </dd>
+        </dl>
+        <dl>
+            <dt>特价推荐</dt>
+            <dd>
+                <a href="" title="雅克利曼手表 Jacques Lemans">雅克利曼</a>
+                <a href="" title="玛莎拉蒂手表 Maserati">玛莎拉蒂</a>
+                <a href="" title="CK手表 Calvin Klein">CK</a>
+                <a href="" title="Guess手表 Guess">Guess</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>款式场合</dt>
+            <dd>
+                <a href="" title="商务手表">商务休闲</a>
+                <a href="" title="正装手表">正装</a>
+                <a href="" title="时尚手表">时尚</a>
+                <a href="" title="运动手表">运动</a>
+                <a href="" title="运动手表">收藏</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>新品上市</dt>
+            <dd>
+                        <a href="" title="送母亲手表">送母亲</a>
+                        <a href="" title="送老婆手表">送老婆</a>
+                        <a href="" title="送女友手表">送女友</a>
+                  <a href="" title="送闺蜜手表">送闺蜜</a>
+            </dd>
+        </dl>
+				</div>
+			</li>
+		</ul>
+</div>
+<!-- end pop_menu-->
+<!--end gMune 修改2014-5-19 15:15:00 修改员——huang-->
+
+	<ul class="gNav">
+    
+      <li><a  title="首页" class="cur"  href="/">首页</a></li>
+                 <li><a    href="/special" title="本期特价">本期特价</a></li>    	
+                 <li><a    href="/time" title="限时抢购">限时抢购</a></li>
+                 <li><a    href="/male" title="男士腕表">男士腕表</a></li>
+                 <li><a    href="/woman" title="女士腕表">女士腕表</a></li>     
+                 <li><a    href="/consignmentShop" title="免费寄卖">免费寄卖</a></li>
+                 <li><a href="huiyuan.html"    style="font-size:15px; color:#ce1739;" title="寻表专区/采购清单"><strong>寻表专区/采购清单</strong></a></li>
+    </ul>
+</div>
+</div>
+
+<!-- End header -->

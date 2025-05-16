@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{.msg}}</h1>
+        <p>你将在3秒后自动跳转到成功页面，或者点击“立即跳转”按钮。</p>
+        <button id="jumpButton">立即跳转</button>
+        <p id="timer">3</p>秒后自动跳转
+    </div>
+
+    <script>
+        // 获取元素
+        const jumpButton = document.getElementById('jumpButton');
+        const timerElement = document.getElementById('timer');
+
+        // 设置初始计时器值
+        let timer = 3;
+
+        // 每隔一秒更新计时器并减少剩余时间
+        const interval = setInterval(() => {
+            timerElement.textContent = timer;
+            timer -= 1;
+
+            // 如果时间到了0，自动跳转
+            if (timer < 0) {
+                clearInterval(interval);
+                window.location.href = '{{.target}}'; // 替换为实际的成功页面URL
+            }
+        }, 1000);
+
+        // 点击按钮手动跳转
+        jumpButton.addEventListener('click', () => {
+            clearInterval(interval);
+            window.location.href = '{{.target}}'; // 替换为实际的成功页面URL
+        });
+    </script>
+</body>
+</html>

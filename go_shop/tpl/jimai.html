@@ -1,0 +1,654 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>喜悦手表-在线寄卖，闲置奢侈品快速变现</title>
+<script src="/static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src="/static/js/LotteryWdatePicker.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/styles/base_v1.css" /> 
+<link rel="stylesheet" type="text/css" href="/static/styles/jquery.autocomplete.css" />
+<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/js/global_siku.js"></script> 
+<script src="/static/js/jquery.cookie.js" type="text/javascript"></script> 
+<script src="/static/js/commonHeader.js" type="text/javascript"></script>
+<script src="/static/js/sk_homepage_zw_v2.js" type="text/javascript"></script>
+<script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
+
+<!--[if IE 6]>
+	<script type="text/javascript" src="/static/js/ie6-png.js"></script>
+	<script language="javascript" type="text/javascript">
+		DD_belatedPNG.fix(".pngfix");
+	</script>
+<![endif]-->
+
+<style type="text/css">
+.jimai_slider {
+	width:100%;
+	height:400px;
+}
+/******slider*******/
+.mtsBanner{
+	width:auto;
+	height:400px;
+	background:#fff;
+	overflow:hidden
+}
+.mtsBanner .bannerWrap{
+	position:relative;
+	width:auto;
+	height:400px;
+	overflow:hidden
+}
+.mtsBanner .bannerWrap li{background-position:center top; background-repeat:no-repeat}
+.slide_control {position: absolute; z-index: 20; left: 10px; bottom: 15px;}
+.mtsBanner .slide_control{position:absolute;z-index:20; bottom:10px;left:50%;margin-left:-230px}
+.mtsBanner .mall_dot,.mtsBanner .mall_dot_hover{width:10px;height:10px;line-height:15px;text-decoration:none;float:inherit;display:inline-block}
+.mtsBanner .mall_dot{background:#fff; text-indent:-20px;-moz-opacity: 0.5;
+	opacity:0.5;
+	filter:alpha(opacity=50);}
+.mtsBanner .mall_dot_hover{background:#fff;text-indent:-20px;-moz-opacity: 1;
+	opacity:1;
+	filter:alpha(opacity=100);}
+.mall_dot,.mall_dot_hover{float:left;margin:0 5px;width:14px;overflow:hidden;height:14px;line-height:100px;text-align:center;font-weight:800;font-size:12px;color:white;cursor:pointer;font-family:Tahoma;text-decoration:none;background:#9d9fa2;border-radius:50%}
+.mall_dot_hover{background:#ed145b}
+.slidearrow{position:absolute;cursor:pointer;width:40px;height:50px;opacity:.3;top:50%;background:#000;display:block;filter:alpha(opacity=30);color:#fff;text-align:center;font:bold 24px \5b8b\4f53,Hei;line-height:50px}
+.slidearrow:hover{opacity:.7;cursor:pointer}
+.slidearrow_l{left:-40px}
+.slidearrow_r{right:-40px}
+/********slider*********/
+.content_box { width:100%; position:relative; z-index:1;}
+.jnav,.nav_btn01,.nav_btn02,.nav_btn_hover,.t1,.t2,.jnav ul li.active .aStyle { background:url(/static/images/jimai_02.png) repeat-x;}
+.nav_box { height:44px; position:relative; z-index:2;}
+.jnav { height:44px; width:100%;  min-width:990px; background-position:0 0;}
+.jnav ul { width:990px; margin:0 auto; background:url(/static/images/jimai_22.gif) no-repeat right top;}
+.jnav ul li { width:163px; padding-left:2px; height:44px; float:left; background:url(/static/images/jimai_22.gif) no-repeat left top; cursor:pointer;}
+.jnav ul li.active .aStyle { background-position:0 -90px;}
+.jnav ul li.anotherBtn { width:163px; padding-left:2px;}
+.aStyle { display:block; width:163px; height:44px; text-align:center; color:#fff; font:500 14px/44px microsoft yahei;}
+
+.jnav ul li a.hover { background-position:0 -45px;}
+
+.nav_btn01,.nav_btn02 { width:163px; height:44px; background-position:0 -135px; cursor:pointer;}
+.nav_btn01 p,.nav_btn02 p { width:88px; height:23px; margin:0 auto; padding-top:12px; font:bold 14px/23px microsoft yahei; color:#fff; }
+.nav_btn_hover {background-position:0 -225px;}
+.t1 { width:16px; height:23px; display:inline-block; background-position:0 -277px; float:left; }
+.t2 { width:21px; height:23px; display:inline-block; background-position:0 -306px; float:left; }
+.bgcolor01 { background-color:#eee;}
+.bgcolor02 { background-color:#fff;}
+.bgcolor03 { background:#242424 url(/static/images/jimai_15.jpg) no-repeat center top; height:655px;}
+.bgcolor04 { background-color:#fdfdfd;}
+.jimai_list01 { width:100%;}
+.jimai_list01 p { width:990px; margin:0 auto;}
+.jimai_list01 p img { float:left;}
+
+.popbox { 
+	display:none; 
+	width:930px;
+	border:1px solid #9f9f9f; 
+	background:#fff; 
+	z-index:9999; 
+	position:fixed; 
+	_position:absolute;
+	left:50%; 
+	top:50%;
+	margin-left:-465px;
+	margin-top:-100px;
+	
+	_top:10%;
+}
+.mask{
+	display:none;
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%;
+	position:absolute;/*IE6*/
+	background-color: black;
+	z-index:9998;  
+	-moz-opacity: 0.7;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+
+.close { cursor:pointer; width:36px; height:36px; position:absolute; right:-16px; top:-16px; background:url(/static/images/close.png) no-repeat;}
+.pop_con { font-family:microsoft yahei; width:870px; padding:20px 30px; margin:0 auto;}
+.h3 { font-size:18px; font-weight:bold; color:#dd2e53;}
+.h4 { font-size:14px; font-weight:bold; color:#666;}
+.pop_con p { line-height:22px; padding:5px 0; color:#666;}
+
+.pop_con ul li { height:35px; line-height:35px; font-family:microsoft yahei; padding:5px 0;}
+.pop_con ul li span { float:left;}
+.pop_con ul li span.ap_text { width:155px; text-align:right;}
+.ap_input {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	width: 200px;
+	height: 19px; line-height:19px;
+	padding: 7px 5px;
+	float:left;
+}
+.notAppointment { margin-top:15px; padding-top:15px; border-top:1px solid #ddd;}
+
+.master { width:860px; height:427px; margin:0 auto; padding-top:227px;}
+.master ul { position:relative;}
+.master li { height:427px; width:250px; float:left; position:absolute; top:0;}
+.master ul li.active { z-index:6;}
+.master li.w { left:0; z-index:0}
+.master li.l { width:290px; left:145px; z-index:1}
+.master li.s { left:292px; z-index:5}
+.master li.n { left:447px; z-index:4}
+.master li.h { left:610px; width:270px; z-index:3}
+.master li.active .wangwh,.master li.active .lirimei,.master li.active .sanmu,.master li.active .nahui,.master li.active .hanchao { background-position:0 0;}
+
+.wangwh { width:250px; height:427px; background:url(/static/images/wangwh.png) no-repeat -249px 0;}
+.lirimei { width:290px; height:429px; background:url(/static/images/lirimei.png) no-repeat -289px 0; }
+.sanmu { width:250px; height:427px; background:url(/static/images/sanmu.png) no-repeat -250px -2px;}
+.nahui { width:250px; height:427px; background:url(/static/images/nahui.png) no-repeat -250px 0;}
+.hanchao { width:270px; height:427px; background:url(/static/images/hanchao.png) no-repeat -270px 0;}
+.sanmu_1 { position:absolute; width:347px; height:182px; background:url(/static/images/word-sanmu.png) no-repeat; top:197px; left:175px; display:none;}
+.wangwh_1 { position:absolute; width:338px; height:168px; background:url(/static/images/jb_bg.png) no-repeat; top:197px; left:175px; display:none;}
+.lirimei_1 {position:absolute; width:340px; height:190px; background:url(/static/images/word-lirimei.png) no-repeat; top:197px; left:175px; display:none;}
+.nahui_1 {position:absolute; width:352px; height:150px; background:url(/static/images/word-nahui.png) no-repeat; top:197px; right:105px; display:none;}
+.hanchao_1 {position:absolute; width:346px; height:156px; background:url(/static/images/word-hanchao.png) no-repeat; top:197px; right:175px; display:none;}
+.master li.active .sanmu_1,.master li.active .lirimei_1,.master li.active .wangwh_1,.master li.active .nahui_1,.master li.active .hanchao_1 { display:block;}
+.pop_yuyue { width:545px; height:290px; position:absolute; top:44px; right:0; border:1px solid #dddcda; background-color:#fff;}
+.msg_error { display:block; float:left; color:#cc0000; padding-left:5px;}
+</style>
+</head>
+
+<body>
+
+<!--页头代码开始-->
+<script type="text/javascript">
+
+$(function(){
+	 $('#keyword').autocomplete("htindexSearch/suggestKeyword/search?callback=?", {
+		 width: 268,
+		 height:500,
+		 max: 10,//下拉列表显示的最大数据条数
+		 highlight: false,
+		 //multiple: true,多选
+		 //multipleSeparator: " ",
+		 scroll: true,   
+		 scrollHeight: 300,
+                 dataType: "jsonp", 
+                 jsonp: "callback",
+		 parse:function(data){//对返回的JSON串处理
+		      var rows=new Array();
+		      for(var i=0;i<data.length;i++){
+		       	rows[rows.length]={
+			       data:data[i],
+			       value:data[i].content,
+			       result:data[i].content  
+		       	};
+		      }
+		      return rows;
+		     },
+		    formatItem: function(row, i, max) {
+				return  row.content ;
+		 }	    
+	});
+});
+                        var enterSearchTop = function (){
+	                     var event = arguments.callee.caller.arguments[0]||window.event;//消除浏览器差异
+                             if (event.keyCode == 13){
+    	                         searchForm();
+                              }
+                         };
+
+</script>
+<link rel="stylesheet" type="text/css" href="/static/styles/jquery.autocomplete.css" />
+<script src="/static/js/jquery.autocomplete.js" type="text/javascript"></script>
+<!--页头代码结束-->
+
+<!--中部内容开始-->
+
+<div class="jimai_box">
+	<div class="jimai_slider">
+    	<div class="mtsBanner" id="mtsBanner">
+    		<ul class="bannerWrap">
+            <img src="/static/images/banner2.jpg" />
+                <li style="background-image:url(/static/images/jimai_01.jpg)" ></li>
+    		</ul> 
+		</div>
+    </div>
+<div class="nav_box">
+    	<div class="jnav" id="fixed">
+    	<ul class="clearfix">
+        	<li><a class="aStyle navBtn01" href="#">什么事寄卖</a></li>
+            <li><a class="aStyle navBtn02" href="#">寄卖的方式与流程</a></li>
+            <li><a class="aStyle navBtn03" href="#">调价与撒买</a></li>
+            <li><a class="aStyle navBtn04" href="#">结算与提现</a></li>
+            <li class="anotherBtn">
+            	<a style="display:block; width:163px; height:44px;" href="#" target="_blank"><div class="nav_btn01">
+                	<p class="clearfix">
+                    	<span class="t1 pngfix"></span>&nbsp;立即寄卖
+                    </p>
+                </div>
+                </a>
+            </li>
+            <li class="anotherBtn">
+                	<div class="nav_btn02">
+                        <p class="clearfix">
+                            <span class="t2 pngfix"></span>&nbsp;到店预约
+                        </p>
+                	</div>                    
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div class="content_box" id="floor">
+        <div class="jimai_list01 bgcolor01">
+            <p class="clearfix">
+                <img src="/static/images/jimai_03.jpg" width="990" height="240" />
+                <img src="/static/images/jimai_04.jpg" width="990" height="240" />
+                <img src="/static/images/jimai_05.jpg" width="990" height="211" />
+                <img src="/static/images/jimai_06.jpg" width="990" height="178" />
+                <img src="/static/images/jimai_07.jpg" width="990" height="214" />
+                <img src="/static/images/jimai_08.jpg" width="990" height="217" />
+            </p>
+        </div>
+        <div class="jimai_list01 bgcolor02">
+            <p class="clearfix">
+                <img src="/static/images/jimai_09.jpg" width="990" height="432" />
+                <img src="/static/images/jimai_10.jpg" width="990" height="232" />
+                <img src="/static/images/jimai_11.jpg" width="990" height="186" />
+            </p>
+        </div>
+        <div class="jimai_list01 bgcolor01">
+            <p class="clearfix"><img src="/static/images/jimai_12.jpg" width="990" height="184" /><img src="/static/images/jimai_13.jpg" width="990" height="242" /><img src="/static/images/jimai_14.jpg" width="990" height="220" /></p>
+      </div>
+
+  <div class="jimai_list01 bgcolor04">
+            <p class="clearfix">
+                <img src="/static/images/jimai_16.jpg" width="990" height="194" />
+                <img src="/static/images/jimai_17.jpg" width="990" height="194" />
+                <img src="/static/images/jimai_18.jpg" width="990" height="259" />
+          </p>
+        </div>
+        <div class="jimai_list01 bgcolor01">
+            <p class="clearfix">
+                <img src="/static/images/jimai_19.jpg" width="990" height="210" />
+                <img src="/static/images/jimai_20.jpg" width="990" height="210" />
+                <img src="/static/images/jimai_21.jpg" width="990" height="235" />
+          </p>
+        </div>
+        
+        
+        <div class="popbox" id="layer01">
+        	<div class="close pngfix"></div>
+            <div class="pop_con">
+            	<h3 class="h3">什么是寄卖</h3>
+                <p>寄卖一种委托代售的经营方式。是寄卖经营企业按照寄卖服务协议，为货主销售物品，之后再与其结算货款并收取佣金的一种商业服务行为。</p>
+                <h4 class="h4">喜悦手表在线寄卖</h4>
+                <p>突破传统寄卖模式，通过喜悦手表官网或微信提交寄卖商品信息，我们鉴定师会在24小时内与您联系并提供邮寄地址，我们收到的商品通过鉴定后，将您的商品在线上线
+下多种渠道为您销售商品，售出后自动在您库支付账号中充入等值货款.</p>
+            </div>
+        </div>
+        <div class="popbox" id="layer02">
+        	<div class="close pngfix"></div>
+            <div class="pop_con">
+            	<h3 class="h3">寄卖方式与流程</h3>
+                <h5><img src="/static/images/jimai_24.jpg" width="770" height="121" /><img src="/static/images/jimai_25.jpg" width="770" height="222" /></h5>
+                <p>您可预约或直接前往喜悦手表（北京，上海，成都）会所参与寄卖，请携带您欲寄卖的奢品与相关证件，我们的鉴定师会现场为您鉴定估价办理寄卖手续。</p>
+                <p>注：到会所寄卖我们同时提供买断和置换服务。</p>
+            </div>
+        </div>
+        <div class="popbox" id="layer03">
+        	<div class="close pngfix"></div>
+            <div class="pop_con">
+            	<h3 class="h3">调价与撤卖</h3>
+                <p>在您的商品寄卖过程中，您都可以对您的商品在“我的喜悦手表-寄卖物品管理”中进行调价，可以使用比价功能作为参考，每日最多可以调价3次，调价后我们会在24小时内与您联系确认。</p>
+                <p>如果您想取回您的商品，可以前往喜悦手表（北京，上海，成都）会所直接撤卖或者线上“我的喜悦手表-寄卖物品管理”申请撤卖，我们会在24小时内与您联系确认。</p>
+                <p>注：商品如果被顾客预订，系统显示“预订中”，不能申请调价与撤卖。</p>
+            </div>
+        </div>
+        <div class="popbox" id="layer04">
+        	<div class="close pngfix"></div>
+            <div class="pop_con">
+            	<h3 class="h3">结算与提现</h3>
+                <p>售出后库支付结算：您在喜悦手表寄卖的货品订单完成三个工作日内，我们将结算金额等值库币自动转入库支付帐户中，即可消费，剩余库币可以在该货品订单完成次月15日起登录<a href="http://www.secoo.com/">http://www.secoo.com</a>在”我的喜悦手表－帐户余额”中申请提现。</p>
+                <h4 class="h4">提现方式：</h4>
+                <p>1、预约会所取款：请您预约取现时间、地点（北京、上海、成都库会所），届时前去领取，未按选择时间领取需再次勾选预约；</p>
+                <p>2、转账提现：我们会在您提出申请的5个工作日将款项打入下方账户中（到账时间或因银行不同有时间差），初次寄卖请在“我的喜悦手表-账户余额”中添加银行卡信息。
+如需更改提现方式，必须携带本人有效二代身份证件到鉴定中心做变更。</p>
+            </div>
+        </div>
+
+        <div class="popbox" id="layer05" style="width:605px; margin-left:-272px;">
+        	<div class="close pngfix"></div>
+            <div class="pop_con" style="width:545px">
+            	<ul>
+                	<li class="clearfix">
+                    	<span class="ap_text">选择您要预约的门店：</span>
+                        <span class="fl"><input name="sf" type="radio" value="bj">北京店&nbsp;&nbsp;<input name="sf" type="radio" value="sh">上海店&nbsp;&nbsp;<input name="sf" type="radio" value="cd">成都店</span>
+                   		<span id="jimai_sf_error" class="msg_error"></span>
+                    </li>
+                    <li class="clearfix">
+                    	<span class="ap_text">请输入您的手机号：</span><input type="text" class="ap_input" name="jimai_tel" id="jimai_tel"><span id="jimai_tel_error" class="msg_error"></span>
+                    </li>
+                    <li class="clearfix">
+                    	<span class="ap_text">请输入您的姓名：</span><input type="text" class="ap_input" name="jimai_name" id="jimai_name"><span id="jimai_name_error" class="msg_error"></span>
+                    </li>
+                    <li class="clearfix">
+                    	<span class="ap_text">预约到店日期：</span><input type="text" class="ap_input" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" name="jimai_date" id="jimai_date"><span id="jimai_date_error" class="msg_error"></span>
+                    </li>
+                    <li class="clearfix">
+                    	<span class="ap_text">验证码：</span><input type="text" class="ap_input" style="width:95px;float:left;" name="jimai_valide" id="jimai_valide">
+                           <span class="fl" style="padding-left:5px;"><img src="/static/images/valicode" width="105" height="24" id="valide_img" style="display: block; margin-top:5px;"></span>
+                           <span id="jimai_valide_error" class="msg_error" style="padding: 0 0 0 8px;"></span>
+                    </li>
+                    <li class="marTop_15" style="text-align:center;">
+                    	<span id="msg_error" class="msg_error"></span><a href="javascript:void(0)" class="bt_1" id="jimai_submit" style="padding:0px 40px;">提交</a> 
+                    </li>
+                </ul>
+                <div class="notAppointment">不想预约？您也可以直接<a href="http://www.secoo.com/secoojimai/goodsCtrl/toAdd" class="bt_2" style="padding:0px 40px;margin-left:10px;">立即寄卖</a></div>
+            </div>
+        </div>
+        
+        <div class="mask"></div>
+    </div>
+</div>
+<!--中部内容结束-->
+
+<script type="text/javascript">
+$(function(){
+	/******slider*****/
+	$.fn.lazyhover = function(fuc_on, de_on, de_out) {
+		var self = $(this);
+		var flag = 1;
+		var h;
+		var handle = function(elm){
+			clearTimeout(h);
+			if(!flag) self.removeData('timer');
+			return flag ? fuc_on.apply(elm) : null;
+		};
+		var time_on  = de_on  || 0;
+		var time_out = de_out || 500;
+		var timer = function(elm){
+			h && clearTimeout(h);
+			h = setTimeout(function() { handle(elm);  }, flag ? time_on : time_out);
+			self.data('timer', h);
+		}
+		self.hover(
+			function(){
+				flag = 1 ;
+				timer(this);
+			},
+			function(){
+				flag = 0 ;
+				timer(this);
+			}
+		);
+	}
+	function HtmlSlidePlayer(config){
+		this.n =0;
+		this.j =0;
+		this.first_show = 1;
+		var _this = this;
+		var t;
+		var defaults = {fontsize:12,right:10,bottom:15,time:5000,autosize:0,slidearrow:false};
+		this.config = $.extend(defaults,config);
+		this.count = $("#mtsBanner" + " li").length;
+		
+		this.factory = function(){
+			//元素定位
+			$("#mtsBanner").css({position:"relative",zIndex:"0",overflow:"hidden", height: $("#mtsBanner" + " ul").height() + "px" });
+			$("#mtsBanner").prepend("<div class='slide_control'></div>");
+
+			$("#mtsBanner" + " ul").css({position:"relative",zIndex:"0",margin:"0",padding:"0",overflow:"hidden", width:"100%" })
+			$("#mtsBanner" + " li").css({position:"absolute",top:"0",left:"0",width:"100%",height: "100%" ,overflow:"hidden"}).hide().each(function(i){
+				$("#mtsBanner" + " .slide_control").append("<a>"+(i+1)+"</a>");
+			});
+			
+			this.resetclass("#mtsBanner" + " .slide_control a",0);
+			
+			//第一张图片lazyload
+			var img =$("#mtsBanner" + " li").first().find('img');
+			if ( img.length > 0 && !!img.attr('lazyload') ){
+				$.each(img,function(i){
+					$(this).attr("src",$(this).attr("lazyload")).removeAttr("lazyload");
+				});
+			}
+
+		
+			this.slide();
+
+			t = setInterval(this.autoplay,this.config.time);
+			//force the first slide to show
+			$("#mtsBanner" + " .slide_control a").eq(0).triggerHandler('mouseover');
+			
+			var slideContorlWidth = $(".slide_control").width();
+			$(".slide_control").css({marginLeft : -slideContorlWidth/2})
+		};
+	//加一个上一页下一页的按钮
+
+	
+
+	var prev_button = $('<em class="slidearrow slidearrow_l"><</em>');
+	var next_button = $('<em class="slidearrow slidearrow_r">></em>');
+	$("#mtsBanner").append(prev_button).append(next_button);
+	next_button.bind('click',function(){
+		if(_this.n == _this.count-1){
+			$("#mtsBanner" + " .slide_control a").eq(0).triggerHandler('mouseover');
+		}else{
+			$("#mtsBanner" + " .slide_control a").eq(_this.n+1).triggerHandler('mouseover');
+		}
+	});
+	prev_button.bind('click',function(){
+		if(_this.n == 0){
+
+			$("#mtsBanner" + " .slide_control a").eq(_this.count-1).triggerHandler('mouseover');
+		}else{
+			$("#mtsBanner" + " .slide_control a").eq(_this.n-1).triggerHandler('mouseover');
+		}
+
+	});
+	
+
+	//图片渐影
+	this.slide = function(){
+
+		$("#mtsBanner" + " .slide_control a").lazyhover(function(){
+			_this.j = $(this).text() - 1;
+			_this.n = _this.j;
+			if (_this.j >= _this.count){return;}
+
+			//防止闪一下
+			if(_this.first_show) {
+				_this.first_show = 0;
+				$("#mtsBanner" + " li:eq(" + _this.j + ")").show().siblings("li").hide();
+			}else {
+				var li =$("#mtsBanner" + " li:eq(" + _this.j + ")");
+				var next_li ;
+				if ( _this.count >= _this.j + 1 ){
+					next_li = $("#mtsBanner" + " li:eq(" + (_this.j+1) + ")");
+				}
+				
+				li.fadeIn("200").siblings("li").fadeOut("200");
+				//添加图片延迟加载
+				var img=$("img[lazyload]",li);
+				$.each(img,function(i){
+					$(this).attr("src",$(this).attr("lazyload")).removeAttr("lazyload");
+				});
+				//背景图延迟加载
+				var bg_src = li.attr("lazyload");
+				if(bg_src!=undefined){
+					li.css('background-image','url('+bg_src+')').removeAttr("lazyload");
+					
+					if ( next_li != undefined && next_li.length >= 1 ){
+						var next_bg_src = next_li.attr("lazyload");
+						if ( next_bg_src != undefined ){
+							next_li.css('background-image','url('+next_bg_src+')').removeAttr("lazyload");
+						}
+						
+					}
+					
+				}
+
+			};
+			_this.resetclass("#mtsBanner" + " .slide_control a",_this.j);
+		},200,500);
+	};
+
+	//滑过停止
+	$("#mtsBanner").mouseover(function(){
+		clearInterval(t);
+	});
+	
+	$("#mtsBanner").mouseout(function(){
+		t = setInterval(_this.autoplay,_this.config.time)
+	});
+
+
+	//自动播放
+	this.autoplay = function(){
+		_this.n = _this.n >= (_this.count - 1) ? 0 : ++_this.n;
+		$("#mtsBanner" + " .slide_control a").eq(_this.n).triggerHandler('mouseover');
+	}
+	//翻页函数
+	this.resetclass =function(obj,i){
+		$(obj).removeClass('mall_dot_hover').addClass('mall_dot');
+		$(obj).eq(i).addClass('mall_dot_hover');
+		if($.browser.msie && $.browser.version == 6.0){
+			$('.img_slider_trigger').css("zoom","1");
+		}
+	};
+	this.factory();
+}
+	HtmlSlidePlayer({autosize:0,fontsize:12,time:5000});
+	
+	/******随动栏*****/
+	var ofixed = $("#fixed");
+	var oHeight= ofixed.offset().top;
+    function fixFun() {
+		var st = $(document).scrollTop(), winh = $(window).height();
+		var winW = $(window).width();
+		var maxHeight = $(".b_details").height() + $("#header").height() - $(".fixed").height();
+		ofixed.css("position", "absolute");
+		ofixed.css("left", 0);
+		ofixed.css("top",0);
+		if(st > oHeight){
+			if (!window.XMLHttpRequest) {
+				ofixed.css("position", "absolute");
+				ofixed.css("left",0 );
+				ofixed.css("top",st-440);
+        	}
+			else{
+				ofixed.css("position", "fixed");
+				ofixed.css("left",0 );
+				ofixed.css("top",0);
+			}
+		}
+		if(st < $(".content_box").offset().top ){
+			$(".popbox").fadeOut();
+			$(".mask").hide();
+			$(".nav li").removeClass("active");
+		}
+    };
+    $(window).bind("scroll", fixFun);
+	$(window).bind("resize", fixFun);
+	
+	/******弹出层*****/
+	$(".popbox").each(function(){
+		var popBoxheight = $(this).height();
+		$(this).css({marginTop : -popBoxheight/2})
+	})	
+	$(".mask").width($("#floor").width());
+	$(".mask").height($("#floor").height());
+	var t = $("#floor").offset().top;
+	
+	$("a.aStyle").each(function(i){
+		$("a.aStyle").eq(i).attr("indexs",i+1)
+		var is = i+1 
+		$("a.aStyle").click(function(){
+			$(".master li").removeClass("active")
+			$(this).parent().addClass("active")
+			$("#layer05").hide();
+			$("#layer0" + is ).hide();
+			var I = $(this).attr("indexs")
+			if($.browser.msie){
+			var url = "#floor";
+			var id = url.split("#")[1];
+			if(id){
+				$(window).scrollTop(t);
+				$("#layer0" + I ).show();
+				$(".mask").show();
+			}	
+		}else{
+			$("html,body").stop().animate({scrollTop: t},500,function(){
+				$("#layer0" + I ).show();
+				$(".mask").show();
+			});
+		}
+		})
+	});
+	
+	$(".close").click(function(){
+		$(this).parent().fadeOut("fast");
+		$(".mask").hide();
+	});
+	
+	$(".nav li").click(function(){
+		$(".nav li").removeClass("active");
+		$(this).addClass("active");
+	})
+	
+	$(".nav_btn02").click(function(){
+		$("#layer01,#layer02,#layer03,#layer04").hide();
+		$(this).addClass("nav_btn_active")
+		if($.browser.msie){
+			var url = "#floor";
+			var id = url.split("#")[1];
+			if(id){
+				$(window).scrollTop(t);
+				$("#layer05").show();
+				$(".mask").show();
+			}	
+		}else{
+			$("html,body").stop().animate({scrollTop: t},500,function(){
+				$("#layer05").show();
+				$(".mask").show();
+			});
+		}
+	})
+	
+	/*******************/
+	$(".master li").hover(function(){
+		$(".master li").removeClass("active")
+		$(this).addClass("active");
+	})
+		
+	$(".aStyle").hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover")
+	});
+	
+	$(".nav_btn02,.nav_btn01").hover(function(){
+		$(this).addClass("nav_btn_hover");
+	},function(){
+		$(this).removeClass("nav_btn_hover");
+	})
+});
+
+	
+    </script>
+
+<!--页尾代码开始-->
+<div class="footer">
+  <div class="footerListBottom">
+        	<div class="footerListBottom01">
+        	<div class="footerListBottom01">喜悦名表 版权所有 Copyright 2014-2015 www.xxxxxxx.cn . LTD ALL RIGHT RESERVED. </div>
+
+			</div>
+			
+        </div>
+        
+</div>
+    <!-- Google Tag Manager -->
+
+<!--页尾代码结束-->
+<script src="/static/js/secoo_jimai_yuyue.js" type="text/javascript"></script>	
+</body>
+</html>

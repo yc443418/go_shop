@@ -1,0 +1,19 @@
+<div id="page_nav"> 
+    <span>一共有&nbsp;{{.page.TotalCount}}&nbsp;条记录&nbsp;&nbsp;</span>
+    <!-- 上一页逻辑 -->
+    {{if ne .page.Current 1}}
+    <a  href="/{{.router}}?page={{.page.Prev}}" class="pre">上一页<span></span></a>&nbsp;
+    {{end}}
+    <!-- 如果是当前页，不可点击 -->
+    {{range $v := .page.Pages}}
+        {{if eq $v $.page.Current}}
+            <span class="cur">{{$v}}</span>&nbsp;
+        {{else}}
+            <a href="/{{$.router}}?page={{$v}}">{{$v}}</a>&nbsp;
+        {{end}}
+    {{end}}
+    <!-- 下一页逻辑 -->
+    {{if ne .page.Current .page.TotalPages}}
+    <a  href="/{{.router}}?page={{.page.Next}}" class="next">下一页<span></span></a>&nbsp;
+    {{end}}
+</div>
